@@ -2,8 +2,8 @@ const { argv } = require('yargs');
 const uuid = require('uuid/v4');
 const amqp = require('amqplib');
 
-const configs = require('./config');
-const { sleep, random } = require('./utils');
+const configs = require('../config');
+const { sleep, random } = require('../utils');
 
 async function main() {
   const consumerTag = uuid();

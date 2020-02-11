@@ -1,5 +1,6 @@
 const uuid = require('uuid/v4');
 const amqp = require('amqplib');
+const { argv } = require('yargs');
 
 const configs = require('../config');
 const { sleep, random } = require('../utils');
