@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  rabbit:
+    container_name: rabbit
+    image: rabbitmq:management-alpine
+    ports:
+      - 15672:15672
+      - 5672:5672
+    networks:
+      - net
+
+  app:
+    container_name: app
+    image: node:10.16.0
+    volumes:
+      - $PWD:/app
+    working_dir: /app
+    ports:
+      - 3000:3000
+    environment:
+      RABBITMQ_CONNECTION_URL: amqp://rabbit:5672
+      RABBITMQ_QUEUE_NAME: 'user.add'
+    networks:
+      - net
+
+networks:
+  net:
+    driver: bridge

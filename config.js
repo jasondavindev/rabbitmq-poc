@@ -1,0 +1,4 @@
+module.exports = {
+  RABBITMQ_CONNECTION_URL: process.env.RABBITMQ_CONNECTION_URL,
+  RABBITMQ_QUEUE_NAME: process.env.RABBITMQ_QUEUE_NAME,
+};
